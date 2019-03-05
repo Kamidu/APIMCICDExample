@@ -1,3 +1,85 @@
 {
-	
+	"info": {
+		"_postman_id": "027d7c9b-86f4-4364-b375-047d265c33f1",
+		"name": "TestAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Invoke Get Pets",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "69526acc-64fb-491d-8d54-5587ce7198fb",
+						"exec": [
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"kitty\");",
+							"    pm.expect(pm.response.text()).to.include(\"doggie\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{gatewayURL}}/{{apiContext}}/{{apiVersion}}/pets",
+					"host": [
+						"{{gatewayURL}}"
+					],
+					"path": [
+						"{{apiContext}}",
+						"{{apiVersion}}",
+						"pets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invoke Get Pet By ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "69526acc-64fb-491d-8d54-5587ce7198fb",
+						"exec": [
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"kitty\");",
+							"    pm.expect(pm.response.text()).to.include(\"doggie\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{gatewayURL}}/{{apiContext}}/{{apiVersion}}/pets",
+					"host": [
+						"{{gatewayURL}}"
+					],
+					"path": [
+						"{{apiContext}}",
+						"{{apiVersion}}",
+						"pets"
+					]
+				}
+			},
+			"response": []
+		}
+	]
 }
