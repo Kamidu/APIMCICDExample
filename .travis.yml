@@ -15,4 +15,13 @@ jobs:
       - echo "Start deploying the managed REST API to WSO2 Development Environment"
       - node_modules/.bin/newman run DeployAPI/WSO2_API_PUBLISHER.postman_collection.json -e DevEnvironment/Development.postman_environment.json --insecure --bail || travis_terminate 1;
       
-      
+      - echo "Start testing the REST API in WSO2 Development Environment"
+      - newman run TestAPI/TestAPI.postman_collection.json -e DevEnvironment/Development.postman_environment.json --insecure --bail || travis_terminate 1;
+
+      - echo "Start deploying the managed REST API to WSO2 Staging Environment"
+      - node_modules/.bin/newman run DeployAPI/WSO2_API_PUBLISHER.postman_collection.json -e StagingEnvironment/Staging.postman_environment.json --insecure --bail || travis_terminate 1;
+
+      - echo "Start testing the REST API in WSO2 Staging Environment"
+      - node_modules/.bin/newman run TestAPI/TestAPI.postman_collection.json -e StagingEnvironment/Staging.postman_environment.json --insecure --bail || travis_terminate 1;
+
+
